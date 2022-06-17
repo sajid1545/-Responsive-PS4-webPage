@@ -1,0 +1,382 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+:root {
+    --body-color:  #E4E9F7;
+    --nav-color:  #4070F4;
+    --side-nav:  #010718;
+    --text-color:  #FFF;
+    --search-bar:  #F2F2F2;
+    --search-text:  #010718;
+}
+body.dark{
+    --body-color: #18191A;
+    --nav-color: #242526;
+    --side-nav: #242526;
+    --text-color: #CCC;
+    --search-bar: #242526;
+}
+
+body{
+    height: 100vh;
+    background: var(--body-color);
+}
+nav{
+    /* position: fixed; */
+    height: 70px;
+    width: 100%;
+    background-color: var(--nav-color);
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    max-width: 1500px;
+    width: 85%;
+    margin: auto;
+}
+.logo{
+    width: 70px;
+    cursor: pointer;
+}
+.links{
+    display: flex;
+    align-items: center;
+}
+.links li{
+    list-style: none;
+    margin: 13px;
+}
+.links li a{
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.row{
+    margin-left: 11%;
+    margin-top: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+}
+.col-1{
+    width: 40%;
+    position: relative;
+    margin-left: 26px;
+}
+
+.col-1 h2{
+    font-size: 55px;
+    margin-bottom: 25px;
+}
+.col-1 h3{
+    font-size: 22px;
+    color: rgba(101, 99, 99,0.6);
+    margin-bottom: 18px;
+}
+.col-1 p{
+    font-size: 15px;
+    color: rgba(101, 99, 99,0.9);
+    margin-bottom: 25px;
+}
+.col-1 h4{
+    font-size: 18px;
+    margin-bottom: 19px;
+
+}
+button img{
+    width: 30px;
+    display: none;
+    /* float: right; */
+}
+button{
+    width: 150px;
+    height: 40px;
+    background: linear-gradient(to right, rgb(251, 82, 131), rgb(255, 53, 39));
+    outline: none;
+    border: none;
+    color: var(--text-color);
+    transition: all 0.4s ease;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 5px;
+
+}
+button:hover img{
+    display: block;
+    width: 60px;
+}
+button:hover{
+    width: 190px;
+    font-size: 15px;
+}
+
+.col-1::before{
+    content: "";
+    position: absolute;
+    height: 60%;
+    width: 10px;
+    background: linear-gradient(to right, rgb(251, 82, 131), rgb(255, 53, 39));
+    left: -25px;
+    top: 9px;
+
+}
+.col-2{
+    width: 60%;
+    /* height: 100%; */
+    position: relative;
+    display: flex;
+    align-items: center;
+    
+    
+}
+.controller{
+    width: 80%;
+}
+
+.color-box{
+    width: 90%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    left: 20%;
+    transform: translateX(75px);
+    background: linear-gradient(to right, rgb(255, 70, 149), rgb(255, 96, 98));
+    border-radius: 20px;
+}
+
+.hamburger{
+    display: none;
+    cursor: pointer;
+}
+
+.bar{
+    height: 3px;
+    width: 25px;
+    background-color: var(--text-color);
+    margin: 5px;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    display: block;
+
+}
+
+.btn-add{
+    text-align: center;
+    color: var(--text-color);
+    cursor: pointer;
+
+}
+.btn-add img{
+    width: 50px;
+   
+}
+
+.darkLight-Searchbar{
+    display: flex;
+    align-items: center;
+}
+.darkLight,
+.searchToggle{
+    height: 50px;
+    width: 50px;
+    /* background-color: rebeccapurple; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
+
+.darkLight i,
+.searchToggle i{
+    font-size: 25px;
+    position: absolute;
+    color: var(--text-color);
+    /* padding: 10px; */
+    cursor: pointer;
+}
+.darkLight i.sun{
+    opacity: 0;
+    pointer-events: none;
+}
+.darkLight.active i.sun{
+    opacity: 1;
+    pointer-events: auto;
+}
+.darkLight.active i.moon{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.searchToggle i.cancel{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.searchToggle.active i.cancel{
+    opacity: 1;
+    pointer-events:auto;
+}
+
+.searchToggle.active i.search{
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+.searchBar{
+    position: relative;
+}
+.searchBar .searchField{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    height: 35px;
+    width: 250px;
+    left: -327%;
+    bottom: -61px;
+    opacity: 0;
+    
+}
+.searchField input{
+    height: 100%;
+    width: 100%;
+    padding: 5px;
+    outline: none;
+    border: var(--nav-color);
+    
+}
+.searchField i{
+    position: absolute;
+    right: 13px;
+}
+
+.searchField::before{
+    content: "";
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    background-color: var(--nav-color);
+    right: 15px;
+    top: -8px;
+    transform: rotate(45deg);
+    z-index: -1;
+}
+
+.searchToggle.active ~ .searchField{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+body.dark  input{
+    background-color: var(--nav-color);
+    color: white;
+}
+
+body.dark  .searchField i{
+    color: white;
+}
+
+
+
+
+@media (max-width:700px) {
+
+    .row{
+        margin-left: 0%;
+    margin-top: 9%;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    }
+    .col-1 {
+        width: 80%;
+        position: relative;
+        margin-left: 26px;
+        margin-top: 78px;
+    }
+    .col-1 h2{
+        font-size: 30px;
+    }
+    .col-1 h3{
+        font-size: 17px;
+        margin-bottom: 25px;
+    }
+
+    .col-2{
+        width: 93%;
+    }
+    .col-1::before{
+       
+        height: 54%;
+        width: 10px;
+        top: 6px;
+    }
+    
+
+
+    .logo{
+        display: none;
+    }
+    .hamburger{
+        display: block;
+    }
+    .hamburger.active :nth-child(2){
+        opacity: 0;
+    }
+    .hamburger.active :nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active :nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+
+    }
+
+    .links{
+        position: fixed;
+        left: -100%;
+        top: 10%;
+        z-index: 1;
+        flex-direction: column;
+        width: 100%;
+        transition: 0.3s ease;
+        background-color: var(--side-nav);
+        color: var(--text-color);
+        height: 100%;
+        gap: 25px;
+
+        
+
+    }
+    .links a{
+       margin: 16px 0;
+    }
+    .links.active{
+        left: 0%;
+    }
+}
+    
+
+
+body.dark h2{
+    color: #E4E9F7;
+}
+body.dark h4{
+    color: #E4E9F7;
+}
+body.dark h3{
+    color: #b8b0b0;
+}
+body.dark p{
+    color: #b8b0b0;
+}
+
